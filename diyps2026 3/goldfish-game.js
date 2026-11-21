@@ -68,15 +68,10 @@ function drawGarden() {
   fill(40, 120, 60);
 
   text(
-    "Move your mouse around the garden to catch seeds,",
+    "Move your mouse around the garden to catch the seeds, grow flowers, complete all three levels, and win after growing 30 flowers.",
     width / 2,
-    75
-  );
-
-  text(
-    "grow flowers, complete all three levels, and win after 30 flowers.",
-    width / 2,
-    105
+    75,
+    560
   );
 }
 
