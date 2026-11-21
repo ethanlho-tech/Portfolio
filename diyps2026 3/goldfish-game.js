@@ -5,7 +5,9 @@ let gameState = 1;
 let flowers = [];
 
 function setup() {
-  createCanvas(600, 600);
+  let canvas = createCanvas(600, 600);
+  canvas.parent("game");
+
   textAlign(CENTER);
   textSize(20);
 
@@ -68,27 +70,8 @@ function drawGarden() {
 
 function levelOne() {
   fill(0);
-  textSize(13);
-
-  text(
-    "Move your mouse around the garden to catch the seeds,",
-    width / 2,
-    520
-  );
-
-  text(
-    "grow flowers, complete all three levels, and win after",
-    width / 2,
-    540
-  );
-
-  text(
-    "growing 30 flowers.",
-    width / 2,
-    560
-  );
-
   textSize(20);
+
   text("Level 1: Plant the seeds", width / 2, 585);
 
   let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
@@ -106,6 +89,7 @@ function levelOne() {
 function levelTwo() {
   fill(0);
   textSize(20);
+
   text("Level 2: Grow the garden", width / 2, 585);
 
   let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
@@ -123,6 +107,7 @@ function levelTwo() {
 function levelThree() {
   fill(0);
   textSize(20);
+
   text("Level 3: Finish the garden", width / 2, 585);
 
   let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
