@@ -47,22 +47,18 @@ function drawGarden() {
     background(210, 245, 220);
   }
 
-  // Sun
   fill(255, 220, 80);
   noStroke();
   ellipse(80, 80, 70, 70);
 
-  // Clouds
   fill(255);
   ellipse(190, 90, 70, 35);
   ellipse(230, 90, 80, 45);
   ellipse(270, 90, 65, 35);
 
-  // Grass
   fill(100, 190, 90);
   rect(0, 420, width, 180);
 
-  // Ground
   fill(120, 80, 45);
   rect(0, 500, width, 100);
 }
@@ -168,33 +164,26 @@ function drawFlowers() {
 function drawBabyBird() {
   push();
 
-  // Branch
   stroke(90, 55, 30);
   strokeWeight(8);
   line(390, 230, 540, 230);
 
-  // Body
   noStroke();
   fill(255, 220, 80);
   ellipse(460, 190, 65, 55);
 
-  // Wing
   fill(245, 190, 50);
   ellipse(445, 200, 28, 35);
 
-  // Head
   fill(255, 230, 100);
   ellipse(450, 160, 55, 50);
 
-  // Beak
   fill(240, 140, 40);
   triangle(420, 165, 395, 175, 420, 180);
 
-  // Eye
   fill(20);
   ellipse(438, 157, 7, 7);
 
-  // Feather
   fill(255, 230, 100);
   triangle(455, 135, 465, 115, 475, 140);
 
