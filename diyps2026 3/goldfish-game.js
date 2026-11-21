@@ -32,7 +32,8 @@ function draw() {
   drawFlowers();
   drawBabyBird();
 
-  fill(40);
+  fill(0);
+  textSize(20);
   text("Flowers grown: " + score, width / 2, 40);
 }
 
@@ -63,20 +64,20 @@ function drawGarden() {
   // Ground
   fill(120, 80, 45);
   rect(0, 500, width, 100);
+}
 
-  // Instructions
-  fill(40, 120, 60);
+function levelOne() {
+  fill(0);
+  textSize(14);
 
   text(
     "Move your mouse around the garden to catch the seeds, grow flowers, complete all three levels, and win after growing 30 flowers.",
     width / 2,
-    75,
+    525,
     560
   );
-}
 
-function levelOne() {
-  fill(40, 120, 60);
+  textSize(20);
   text("Level 1: Plant the seeds", width / 2, height - 20);
 
   let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
@@ -92,7 +93,8 @@ function levelOne() {
 }
 
 function levelTwo() {
-  fill(40, 120, 60);
+  fill(0);
+  textSize(20);
   text("Level 2: Grow the garden", width / 2, height - 20);
 
   let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
@@ -108,7 +110,8 @@ function levelTwo() {
 }
 
 function levelThree() {
-  fill(40, 120, 60);
+  fill(0);
+  textSize(20);
   text("Level 3: Finish the garden", width / 2, height - 20);
 
   let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
@@ -209,7 +212,8 @@ function drawBabyBird() {
 function winScreen() {
   background(170, 235, 180);
 
-  fill(40, 120, 60);
+  fill(0);
+  textAlign(CENTER);
 
   textSize(42);
   text("YOU WIN!", width / 2, 180);
