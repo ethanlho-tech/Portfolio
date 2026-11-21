@@ -1,6 +1,5 @@
 let seedX = 300;
 let seedY = 320;
-
 let score = 0;
 let gameState = 1;
 let flowers = [];
@@ -65,15 +64,20 @@ function drawGarden() {
   fill(120, 80, 45);
   rect(0, 500, width, 100);
 
+  // Instructions
   fill(40, 120, 60);
 
-  if (gameState == 1) {
-    text("Move your mouse to catch the seed", width / 2, 75);
-  } else if (gameState == 2) {
-    text("The garden is growing!", width / 2, 75);
-  } else if (gameState == 3) {
-    text("The garden is almost finished!", width / 2, 75);
-  }
+  text(
+    "Move your mouse around the garden to catch seeds,",
+    width / 2,
+    75
+  );
+
+  text(
+    "grow flowers, complete all three levels, and win after 30 flowers.",
+    width / 2,
+    105
+  );
 }
 
 function levelOne() {
