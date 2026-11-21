@@ -1,5 +1,6 @@
 let seedX = 300;
 let seedY = 320;
+
 let score = 0;
 let gameState = 1;
 let flowers = [];
