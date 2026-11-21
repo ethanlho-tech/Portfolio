@@ -15,12 +15,19 @@ function setup() {
 }
 
 function draw() {
+  if (gameState == 4) {
+    winScreen();
+    return;
+  }
+
   drawGarden();
 
   if (gameState == 1) {
     levelOne();
   } else if (gameState == 2) {
     levelTwo();
+  } else if (gameState == 3) {
+    levelThree();
   }
 
   drawFlowers();
@@ -31,7 +38,9 @@ function draw() {
 }
 
 function drawGarden() {
-  if (score >= 5) {
+  if (gameState == 3) {
+    background(255, 220, 170);
+  } else if (score >= 10) {
     background(180, 230, 255);
   } else {
     background(210, 245, 220);
@@ -58,10 +67,12 @@ function drawGarden() {
 
   fill(40, 120, 60);
 
-  if (score >= 5) {
-    text("The garden is blooming!", width / 2, 75);
-  } else {
+  if (gameState == 1) {
     text("Move your mouse to catch the seed", width / 2, 75);
+  } else if (gameState == 2) {
+    text("The garden is growing!", width / 2, 75);
+  } else if (gameState == 3) {
+    text("The garden is almost finished!", width / 2, 75);
   }
 }
 
@@ -73,7 +84,6 @@ function levelOne() {
 
   if (distanceToSeed < 30) {
     growFlower();
-    score = score + 1;
 
     seedX = random(60, width - 60);
     seedY = random(250, 390);
@@ -84,13 +94,28 @@ function levelOne() {
 
 function levelTwo() {
   fill(40, 120, 60);
-  text("Level 2: The garden is growing!", width / 2, height - 20);
+  text("Level 2: Grow the garden", width / 2, height - 20);
 
   let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
 
   if (distanceToSeed < 30) {
     growFlower();
-    score = score + 2;
+
+    seedX = random(60, width - 60);
+    seedY = random(250, 390);
+  }
+
+  drawSeed();
+}
+
+function levelThree() {
+  fill(40, 120, 60);
+  text("Level 3: Finish the garden", width / 2, height - 20);
+
+  let distanceToSeed = dist(mouseX, mouseY, seedX, seedY);
+
+  if (distanceToSeed < 30) {
+    growFlower();
 
     seedX = random(60, width - 60);
     seedY = random(250, 390);
@@ -105,7 +130,13 @@ function growFlower() {
     y: seedY
   });
 
-  if (score >= 5) {
+  score = score + 1;
+
+  if (score >= 30) {
+    gameState = 4;
+  } else if (score >= 20) {
+    gameState = 3;
+  } else if (score >= 10) {
     gameState = 2;
   }
 }
@@ -148,7 +179,7 @@ function drawBabyBird() {
   strokeWeight(8);
   line(390, 230, 540, 230);
 
-  // Baby bird body
+  // Body
   noStroke();
   fill(255, 220, 80);
   ellipse(460, 190, 65, 55);
@@ -169,18 +200,40 @@ function drawBabyBird() {
   fill(20);
   ellipse(438, 157, 7, 7);
 
-  // Tiny feather
+  // Feather
   fill(255, 230, 100);
   triangle(455, 135, 465, 115, 475, 140);
 
   pop();
 }
 
+function winScreen() {
+  background(170, 235, 180);
+
+  fill(40, 120, 60);
+
+  textSize(42);
+  text("YOU WIN!", width / 2, 180);
+
+  textSize(25);
+  text("Your digital garden is complete.", width / 2, 240);
+
+  textSize(20);
+  text("You grew 30 flowers.", width / 2, 290);
+
+  drawFlowers();
+  drawBabyBird();
+
+  textSize(18);
+  text("Click to grow a new garden", width / 2, 550);
+}
+
 function mousePressed() {
-  if (score >= 10) {
+  if (gameState == 4) {
     score = 0;
     flowers = [];
     gameState = 1;
+
     seedX = random(60, width - 60);
     seedY = random(250, 390);
   }
