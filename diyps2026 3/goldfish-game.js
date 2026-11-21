@@ -1,6 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simple Game</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    body {
+      margin: 0;
+      background: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    #game {
+      margin-top: 35px;
+    }
+
+    canvas {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .game-instructions {
+      max-width: 700px;
+      margin: 20px auto 40px;
+      color: black;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container justify-content-start">
+
+      <a class="navbar-brand" href="../index.html">
+        Ethan's Portfolio
+      </a>
+
+      <ul class="navbar-nav flex-row flex-wrap gap-1 ms-3">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../glitch.html">Glitch</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../identity.html">Identity</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../remix.html">Remix</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../3D.html">3D</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../netart.html">Net Art</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../goldfish.html">Drawing Tool</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Simple Game</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <main>
+    <div id="game"></div>
+
+    <p class="game-instructions">
+      Move your mouse around the garden to catch the seeds, grow flowers,
+      complete all three levels, and win after growing 30 flowers.
+    </p>
+  </main>
+
+  <script src="libraries/p5.min.js"></script>
+  <script src="goldfish-game.js"></script>
+
+</body>
+</html>
+
+
+
 let seedX = 300;
 let seedY = 320;
-
 let score = 0;
 let gameState = 1;
 let flowers = [];
